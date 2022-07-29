@@ -11,7 +11,7 @@ const ContactRouter = express.Router();
 
 ContactRouter.get("/", ctrlWrapper(ctrl.getAll));
 ContactRouter.get("/:id", isValidId, ctrlWrapper(ctrl.getById));
-ContactRouter.post("/", ctrlWrapper(ctrl.add));
+ContactRouter.post("/", isValidBody, ctrlWrapper(ctrl.add));
 ContactRouter.put("/:id", isValidId, isValidBody, ctrlWrapper(ctrl.updateById));
 ContactRouter.delete("/:id", isValidId, ctrlWrapper(ctrl.removeById));
 ContactRouter.patch("/:id/favorite", isValidId, ctrlWrapper(ctrl.setFavorite));

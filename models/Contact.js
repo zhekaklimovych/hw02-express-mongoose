@@ -6,7 +6,7 @@ const contactSchema = Schema({
     email: {type: String, required: true, unique: true},
     phone: {type: String, required: true, unique: true, match: /\([0-9]{3}\) [0-9]{3}-[0-9]{4}/},
     favorite: {type: Boolean, default: false}
-},{versionKey: false});
+},{versionKey: false, timestamps: true});
 
 const handleErrors = (error, data, next)=> {
     const {name, code} = error;
